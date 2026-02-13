@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>北風と太陽 | うつ病患者を支える家族会</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper-1: #f5ebd6;
+        --paper-2: #efdfc1;
+        --ink: #2e2b25;
+        --muted: #5b6f52;
+        --accent: #d96b2f;
+        --accent-soft: #f6c89b;
+        --line: #a2b091;
+        --card: rgba(255, 250, 242, 0.8);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Zen Maru Gothic", sans-serif;
+        line-height: 1.8;
+        background:
+          linear-gradient(135deg, rgba(245, 235, 214, 0.45), rgba(239, 223, 193, 0.45)),
+          radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.18) 0, rgba(255, 255, 255, 0) 42%),
+          radial-gradient(circle at 80% 10%, rgba(255, 241, 213, 0.4) 0, rgba(255, 241, 213, 0) 38%),
+          url("./assets/tile.jpg");
+        background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+        background-size: auto, auto, auto, 420px 420px;
+      }
+
+      .page {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 24px clamp(16px, 4vw, 48px) 72px;
+      }
+
+      .section {
+        position: relative;
+        margin-top: 26px;
+        padding: clamp(22px, 4vw, 44px);
+        border-radius: 22px;
+        background: var(--card);
+        border: 1px solid rgba(130, 88, 35, 0.12);
+        box-shadow: 0 10px 34px rgba(83, 63, 24, 0.12);
+        opacity: 0;
+        transform: translateY(16px);
+        animation: fade-up 0.8s ease forwards;
+      }
+
+      .section:nth-child(2) {
+        animation-delay: 0.14s;
+      }
+      .section:nth-child(3) {
+        animation-delay: 0.28s;
+      }
+      .section:nth-child(4) {
+        animation-delay: 0.42s;
+      }
+
+      .hero {
+        display: grid;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        width: clamp(96px, 18vw, 140px);
+        aspect-ratio: 1;
+        border-radius: 18px;
+        object-fit: cover;
+        background: linear-gradient(145deg, #fff4e5, #ffe0b8);
+        border: 1px solid rgba(217, 107, 47, 0.24);
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        font-family: "Zen Old Mincho", serif;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        line-height: 1.35;
+      }
+
+      h1 {
+        color: var(--muted);
+        font-size: clamp(1.65rem, 4vw, 2.45rem);
+      }
+
+      .subtitle {
+        font-size: clamp(1rem, 2.1vw, 1.2rem);
+        margin-top: 4px;
+      }
+
+      .lead {
+        margin-top: 12px;
+        font-size: clamp(1rem, 2.2vw, 1.26rem);
+      }
+
+      .divider {
+        margin-top: 14px;
+        border: 0;
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--line), transparent);
+      }
+
+      .quote {
+        text-align: center;
+        color: var(--muted);
+        font-family: "Zen Old Mincho", serif;
+        font-size: clamp(1.26rem, 3.5vw, 2.05rem);
+        line-height: 1.75;
+      }
+
+      .quote-block {
+        display: grid;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .quote span {
+        display: block;
+        margin: 8px auto;
+        max-width: 28ch;
+        border-bottom: 3px solid rgba(91, 111, 82, 0.7);
+      }
+
+      .quote-clouds {
+        display: grid;
+        gap: 12px;
+      }
+
+      .quote-clouds img {
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(130, 88, 35, 0.16);
+        object-fit: cover;
+        background: rgba(255, 252, 247, 0.9);
+      }
+
+      .grid-2 {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 16px;
+        border: 1px solid rgba(130, 88, 35, 0.14);
+        background: rgba(255, 252, 247, 0.88);
+      }
+
+      .card h2 {
+        margin-bottom: 10px;
+        font-size: clamp(1.22rem, 2.4vw, 1.7rem);
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 1.1rem;
+      }
+
+      .contact {
+        display: grid;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .map {
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(130, 88, 35, 0.2);
+        object-fit: cover;
+        min-height: 220px;
+        background: linear-gradient(135deg, #f7f2e8, #ece2ce);
+      }
+
+      .note {
+        margin: 12px 0 0;
+        font-size: 0.9rem;
+        color: #635d51;
+      }
+
+      @media (min-width: 760px) {
+        .quote-block {
+          grid-template-columns: 1fr minmax(190px, 260px);
+          gap: 26px;
+        }
+
+        .grid-2 {
+          grid-template-columns: 1.12fr 0.88fr;
+        }
+
+        .contact {
+          grid-template-columns: 1fr 0.95fr;
+        }
+      }
+
+      @keyframes fade-up {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="section hero">
+        <div class="brand">
+          <img class="logo" src="./assets/logo-sun.png" alt="北風と太陽 ロゴ" />
+          <div>
+            <h1>北風と太陽</h1>
+            <p class="subtitle">うつ病患者を支える家族会</p>
+          </div>
+        </div>
+        <p class="lead">
+          私たちは、うつ病患者を支えるご家族が孤立しないための居場所をつくる会です。共感できる仲間と出会い、気持ちを言葉にし、明日への一歩につながる時間を目指しています。
+        </p>
+      </section>
+
+      <section class="section quote-block">
+        <div class="quote" aria-label="メッセージ">
+          <span>誰か聞いて・・・と思ったら、</span>
+          <span>はじめの一歩を踏みだしませんか？</span>
+          <span>あなたの荷物を一緒にちょっとだけ持たせてください。</span>
+        </div>
+        <div class="quote-clouds" aria-label="雲のイメージ">
+          <img src="./assets/cloud.png" alt="雲のイメージ" />
+        </div>
+      </section>
+
+      <section class="section grid-2">
+        <article class="card">
+          <h2>主な活動</h2>
+          <ul>
+            <li>毎月例会: 家族の対応方法・情報交換・うつ病の学習</li>
+            <li>専門家を交えた相談会</li>
+            <li>講演会、セミナーの開催</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>会の開催</h2>
+          <ul>
+            <li>場所: 荻窪保健センター 3階調理室</li>
+            <li>活動日: 毎月第3月曜日 13:00-15:00</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section contact">
+        <article class="card">
+          <h2>問い合わせ先</h2>
+          <p>
+            荻窪保健センター<br />
+            電話: 03-3391-0015<br />
+            健康自主グループ「北風と太陽」担当
+          </p>
+          <p>メール: kitakazetotaiyo.2525@gmail.com</p>
+          <p class="note">※内容はあとで正確な表記にあわせて調整可能です。</p>
+        </article>
+        <img class="map" src="./assets/map-illustration.png" alt="アクセスマップ" />
+      </section>
+    </main>
+  </body>
+</html>
