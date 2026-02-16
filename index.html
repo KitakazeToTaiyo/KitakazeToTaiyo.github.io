@@ -199,6 +199,25 @@
         color: #635d51;
       }
 
+      .link-list {
+        margin: 0;
+        padding-left: 1.1rem;
+      }
+
+      .link-list li + li {
+        margin-top: 8px;
+      }
+
+      .link-list a {
+        color: var(--muted);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      .link-list a:hover {
+        color: var(--accent);
+      }
+      
       @media (min-width: 760px) {
         .quote-block {
           grid-template-columns: 1fr minmax(190px, 260px);
@@ -264,6 +283,7 @@
           <ul>
             <li>場所: <a href="https://maps.app.goo.gl/K6842sfjV7N3unx4A" target="_blank">荻窪保健センター</a> 3階調理室</li>
             <li>活動日: 毎月第3月曜日 13:00-15:00</li>
+            <li>特に連絡いただかなくても、ご参加いただけます。お気軽にお声がけください。</li>
           </ul>
         </article>
       </section>
@@ -280,6 +300,17 @@
         </article>
         <img class="map" src="./assets/map-illustration.png" alt="アクセスマップ" />
       </section>
+
+      <section class="section">
+        <article class="card">
+          <h2>Link</h2>
+          <ul class="link-list">
+            <li><a href="https://freelance-suginami.wixsite.com/info" target="_blank" rel="noopener noreferrer">フリーランス杉並家族会</a></li>
+            <li><a href="Thank you. " target="_blank" rel="noopener noreferrer">杉並家族会</a></li>
+          </ul>
+        </article>
+      </section>
+
     </main>
   </body>
 </html>
